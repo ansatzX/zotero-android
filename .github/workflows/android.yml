@@ -63,11 +63,11 @@ jobs:
       - name: Download Android dependencies
         run: ./gradlew androidDependencies --no-configuration-cache
 
-      # 构建 APK 文件
+
       - name: Build APK
         run: ./gradlew assembleRelease
 
-      # 创建 GitHub Release 并上传 APK
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
