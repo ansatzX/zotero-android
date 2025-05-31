@@ -33,13 +33,13 @@ jobs:
           python-version: '3.10'
 
       - name: Writing PSPDFKIT's key into a file to be then picked up by gradle.
-        run: echo 'ymzxm' | sed 's/./& /g' > pspdfkit-key.txt
+        run: echo 'e367206c7338a2f2bbf484aabbd2cbc37ff8ce18124f0c541cf1b482cb04c336' | sed 's/./& /g' > pspdfkit-key.txt
 
       - name: Decrypt Keystore
-        run: openssl aes-256-cbc -d -in .github/keystore.cipher -k 'ymzxm' -md sha256 > zotero.release.keystore
+        run: openssl aes-256-cbc -d -in .github/keystore.cipher -k 'e367206c7338a2f2bbf484aabbd2cbc37ff8ce18124f0c541cf1b482cb04c336' -md sha256 > zotero.release.keystore
 
       - name: Decrypt Keystore secrets
-        run: openssl aes-256-cbc -d -in .github/keystore-secrets.cipher -k 'ymzxm' -md sha256 > keystore-secrets.txt
+        run: openssl aes-256-cbc -d -in .github/keystore-secrets.cipher -k 'e367206c7338a2f2bbf484aabbd2cbc37ff8ce18124f0c541cf1b482cb04c336' -md sha256 > keystore-secrets.txt
 
       - name: Grant execute permission for bundle_translators.py
         run: chmod +x scripts/bundle_translators.py
