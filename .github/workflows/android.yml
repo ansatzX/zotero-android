@@ -3,6 +3,8 @@ name: Zotero Android CI
 on:
   push:
     # Pattern matched against refs/tags
+      branches:
+        - tag-1.0.0-175
     tags:
       - '**'  # Push events to every tag including hierarchical tags like v1.0/beta
 
