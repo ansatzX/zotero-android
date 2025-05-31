@@ -63,7 +63,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Download Android dependencies
-        run: ./gradlew androidDependencies --no-configuration-cache
+        run: ./gradlew androidDependencies --no-configuration-cache --stacktrace --debug --scan
 
 
       - name: Build APK
