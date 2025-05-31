@@ -63,5 +63,14 @@ jobs:
       - name: Download Android dependencies
         run: ./gradlew androidDependencies --no-configuration-cache
 
-      - name: Deploy to Google Play Internal Test Track
-        run: ./gradlew --no-configuration-cache -PpreDexLibs=false publishInternalReleaseBundle --stacktrace
+      # 构建 APK 文件
+      - name: Build APK
+        run: ./gradlew assembleRelease
+
+      # 创建 GitHub Release 并上传 APK
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
